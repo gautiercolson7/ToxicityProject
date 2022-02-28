@@ -1,7 +1,3 @@
 detoxify
-pickle
-pandas
-numpy
-json
 flask
-dotenv
+python-dotenv
