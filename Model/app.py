@@ -1,7 +1,4 @@
 from detoxify import Detoxify
-import pickle
-import pandas as pd
-import numpy as np
 import json
 from flask import Flask, request
 from dotenv import load_dotenv
