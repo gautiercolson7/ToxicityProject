@@ -1,32 +1,21 @@
 version: "3"
 services:
   frontend:
-    build:
-      context : ./Frontend
-      dockerfile: Dockerfile
+    container_name: toxicity_frontend
+    build: ./Frontend
+    restart: always
     ports:
       - "5001:5001"
-      - "5002:5002"
-      - "5000:5000"
-    env_file:
-      - ./Frontend/.env
   backend:
+    container_name: toxicity_backend
     build:
       context : ./Backend
-      dockerfile: Dockerfile
+    restart: always
     ports:
       - "5000:5000"
-      - "5001:5001"
-      - "5002:5002"
-    env_file:
-      - ./Backend/.env
   model:
-    build:
-      context : ./Model
-      dockerfile: Dockerfile
+    container_name: toxicity_model
+    build: ./Model
+    restart: always
     ports:
       - "5002:5002"
-      - "5001:5001"
-      - "5000:5000"
-    env_file:
-      - ./Model/.env

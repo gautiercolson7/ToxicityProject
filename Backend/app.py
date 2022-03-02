@@ -1,3 +1,4 @@
+from flask_cors import CORS
 from flask import Flask, request
 import requests
 import json
@@ -8,6 +9,7 @@ import numpy as np
 load_dotenv()
 
 app = Flask(__name__)
+cors = CORS(app)
 @app.route('/',methods=['POST']) 
 def getmodel():
     value =  request.json['sentences']
