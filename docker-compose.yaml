@@ -1,22 +1,23 @@
-version: "3"
+version: "2.0"
 services:
-  prometheus:
-    image: prom/prometheus
-    container_name: toxicity_prometheus
-    ports:
-      - 9090:9090
-    volumes:
-      - "C:/Users/gauti/OneDrive - Efrei/Documents/S9/Data Engineering/ToxicityProject/Prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
-    restart: always
   node_exporter:
-        image: prom/node-exporter
-        container_name: toxicity_node-exporter
-        ports:
-            - 9100:9100
-        pid: host
-        restart: always
+      image: prom/node-exporter
+      container_name: node-exporter
+      ports:
+          - 9100:9100
+      pid: host
+      restart: always
+  prometheus:
+      image: prom/prometheus
+      container_name: prometheus
+      ports:
+              - 9090:9090
+      volumes:
+              - "C:/Users/gauti/OneDrive - Efrei/Documents/S9/Data Engineering/ToxicityProject/Prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+              - "C:/Users/gauti/OneDrive - Efrei/Documents/S9/Data Engineering/ToxicityProject/Prometheus/rules.yml:/etc/prometheus/rules.yml"
+      restart: always
   frontend:
-    container_name: toxicity_frontende
+    container_name: toxicity_frontend
     build: ./Frontend
     restart: always
     ports:
