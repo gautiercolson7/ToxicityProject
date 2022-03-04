@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Access') {
 			steps {
-				git([url:'https://github.com/gautiercolson7/ToxicityProject.git', branch:'main'])
+				git([url:'https://github.com/gautiercolson7/ToxicityProject.git', branch:'jenkins'])
 			}
 		}
 		stage('Build docker images') {
