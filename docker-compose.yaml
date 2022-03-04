@@ -8,6 +8,13 @@ services:
     volumes:
       - "C:/Users/gauti/OneDrive - Efrei/Documents/S9/Data Engineering/ToxicityProject/Prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
     restart: always
+  node_exporter:
+        image: prom/node-exporter
+        container_name: toxicity_node-exporter
+        ports:
+            - 9100:9100
+        pid: host
+        restart: always
   frontend:
     container_name: toxicity_frontende
     build: ./Frontend
