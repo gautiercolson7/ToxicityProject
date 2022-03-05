@@ -21,15 +21,16 @@ pipeline {
 				bat 'docker image rm toxicityproject_front'
 			}
 		}
-		stage('Docker Compose') {
-			steps {
-				bat 'docker-compose up'
-			}
-		}
 		stage('Build and Run unit tests'){
 			steps {
 				bat 'pytest ./Tests'
 			}
 		}
+		stage('Docker Compose') {
+			steps {
+				bat 'docker-compose up'
+			}
+		}
+		
     }
 }
