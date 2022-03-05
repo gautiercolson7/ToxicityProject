@@ -26,5 +26,10 @@ pipeline {
 				bat 'docker-compose up'
 			}
 		}
+		stage('Build and Run unit tests'){
+			steps {
+				bat 'pytest ./Tests'
+			}
+		}
     }
 }
