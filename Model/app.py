@@ -1,4 +1,5 @@
 from detoxify import Detoxify
+
 import json
 from flask import Flask, request
 from dotenv import load_dotenv
