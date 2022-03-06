@@ -14,7 +14,7 @@ class TestApp:
    
     def test_stress(self):
         start = time.time()
-        for i in range(1000):
+        for i in range(100):
             #front ask data to back and back ask prediction to model. 
             request = requests.post('http://localhost:5000', data=json.dumps({'sentences': self.sentencePositive}), headers={'content-type': 'application/json'} )
             json.loads(request.content.decode('utf-8')) #prediction
