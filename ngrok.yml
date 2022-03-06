@@ -1,8 +1,0 @@
-authtoken: 25mJw42wtHa34m600GNPSLYT1tv_53xj2JtKSNLwN6LxvUagW
-region: eu
-
-tunnels:
-  labelstudio:
-    addr: 5000
-    proto: http
-    bind_tls: true
