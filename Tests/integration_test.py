@@ -1,6 +1,7 @@
 
 import sys
 from urllib import response 
+import time 
 
 sys.path.append('..')
 
@@ -35,11 +36,21 @@ class TestApp:
         assert response.status_code == 405
     
     
-    def test_back_to_front(self):
-        response = requests.post('http://localhost:5001', data=json.dumps({'sentences': self.dictionaryTotransform}))
+    def test_back_to_model(self):
+        response = requests.post('http://localhost:5002', data=json.dumps({'sentences': self.sentencePositive}), headers={'content-type': 'application/json'} )
+        assert response.status_code == 200
+
+    def test_model_to_back(self):
+        response = requests.post('http://localhost:5000', data=json.dumps({'sentences': self.sentencePositive}), headers={'content-type': 'application/json'} )
+        assert response.status_code == 200
+
+    def test_front_to_back(self):
+        response = requests.post('http://localhost:5001', data=json.dumps({'sentences': self.sentencePositive}), headers={'content-type': 'application/json'} )
         assert response.status_code == 405
 
-    def test_boostrap_css(self):
-        response = requests.get('http://static/css/bootstrap/bootstrap.min.css')
-        assert response.status_code == 304
-        
+
+
+
+
+   
+
